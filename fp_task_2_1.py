@@ -24,6 +24,11 @@ students = [
     {"name": "Sophia", "age": 19, "subject": "Math", "grades": [68, 87, 73, 79]},
     {"name": "Vladislav", "age": 18, "subject": "Math", "grades": [75, 88, 69, 71]},
 ]
+print("Введите возраст, по которому хотите отфилтьровать студентов:")
+target_age = int(input())
+print("Введите предмет, по которому хотите сделать выборку студентов:")
+target_subject = input()
+
 def calculate_average_grades(students):
     student_averages = []
     total_sum = 0
@@ -63,11 +68,11 @@ print("Студент(ы) с самым высоким средним балло
 for student in top_students:
     print(student)
 def filter_students_by_age(students, target_age):
-    filtered_students = []
+    filtered_students_age = []
     for student in students:
         if student["age"] == target_age:
-            filtered_students.append(student)
-    return filtered_students
+            filtered_students_age.append(student)
+    return filtered_students_age
 
 def filter_students_by_subject(students, target_subject):
     filtered_students = []
@@ -77,14 +82,14 @@ def filter_students_by_subject(students, target_subject):
     return filtered_students
 
 # Примеры использования функций для фильтрации студентов
-filtered_by_age_20 = filter_students_by_age(students, target_age=20)
-filtered_by_subject_math = filter_students_by_subject(students, target_subject="Math")
+filtered_by_age_20 = filter_students_by_age(students, target_age)
+filtered_by_subject_math = filter_students_by_subject(students, target_subject)
 
-print("Студенты с возрастом 20 лет:")
+print(f"Студенты с возрастом {target_age}:")
 for student in filtered_by_age_20:
     print(student["name"])
 
-print("Студенты по предмету 'Math':")
+print("Студенты по предмету:")
 for student in filtered_by_subject_math:
     print(student["name"])
 
