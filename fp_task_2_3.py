@@ -33,11 +33,11 @@ def calculate_total_amount(total, order):
 
 filtered_orders = filter(lambda order: filter_orders(order, target_customer_id), orders)
 
-order_amounts = map(lambda order: order["amount"], filtered_orders)
+filtered_orders_list = list(filtered_orders)
 
-total_amount = reduce(calculate_total_amount, order_amounts, 0)
+total_amount = reduce(calculate_total_amount, filtered_orders_list, 0)
 
-num_orders = reduce(lambda x, _: x + 1, order_amounts, 0)
+num_orders = len(filtered_orders_list)
 average_amount = total_amount / num_orders if num_orders > 0 else 0
 
 print(f"Общая сумма заказов для клиента {target_customer_id}: {total_amount}")
