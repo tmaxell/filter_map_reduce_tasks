@@ -20,23 +20,19 @@ students = [
     {"name": "Sophia", "age": 19, "subject": "Math", "grades": [68, 87, 73, 79]},
     {"name": "Vladislav", "age": 18, "subject": "Math", "grades": [75, 88, 69, 71]},
 ]
-print("Введите возраст, по которому хотите отфильтроват студентов:")
+print("Введите возраст, по которому хотите отфильтровать студентов:")
 target_age = int(input())
 def calculate_average_grade(student):
     grades = student["grades"]
     return sum(grades) / len(grades)
 
-# Фильтрация студентов возрастом 19 лет
 filtered_students = list(filter(lambda student: student["age"] == target_age, students))
 
-# Вычисление среднего балла каждого студента
 average_grades = list(map(calculate_average_grade, students))
 
-# Нахождение студента с самым высоким средним баллом
 best_student = max(students, key=calculate_average_grade)
 
-# Вывод результатов
-print("Студенты возрастом 19 лет:")
+print(f"Студенты возрастом {target_age} лет:")
 for student in filtered_students:
     print(f"{student['name']}: {student['age']} лет")
 
