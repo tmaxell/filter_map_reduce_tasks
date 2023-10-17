@@ -40,5 +40,7 @@ total_amount = reduce(calculate_total_amount, filtered_orders_list, 0)
 num_orders = len(filtered_orders_list)
 average_amount = total_amount / num_orders if num_orders > 0 else 0
 
+print(f"Заказы клиента {target_customer_id}: {filtered_orders_list}")
 print(f"Общая сумма заказов для клиента {target_customer_id}: {total_amount}")
 print(f"Средняя стоимость заказов для клиента {target_customer_id}: {average_amount}")
+
